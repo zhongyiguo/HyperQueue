@@ -1,0 +1,26 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'eclipse-wtp'
+
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+   providedCompile 'javax.servlet:servlet-api:2.5'
+   compile 'org.springframework:spring-webmvc:3.2.2.RELEASE'
+   compile 'javax.servlet:jstl:1.1.2'
+   
+   compile 'joda-time:joda-time:2.3'
+   compile 'com.fasterxml.jackson.core:jackson-annotations:2.3.0'
+   compile 'com.fasterxml.jackson.core:jackson-databind:2.2.3'
+   compile 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate4:2.3.0'
+   
+    compile 'org.springframework.data:spring-data-jpa:1.2.0.RELEASE'
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.3.1.Final'
+   
+}
+
+/* Change context path (base url). otherwise defaults to name of project */
+jettyRunWar.contextPath = '' 
